@@ -1,6 +1,7 @@
 from telegram.ext import Updater, MessageHandler, Filters
 import yt_dlp
 import os
+import imghdr
 
 TOKEN = "7953602481:AAH2Bj97OEJfGWAmgWDRBhAvcbNV0ATT6IY"
 
@@ -37,3 +38,4 @@ def main():
 
 if __name__ == "__main__":
     main()
+

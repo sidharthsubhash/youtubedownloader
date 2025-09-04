@@ -1,7 +1,7 @@
 from telegram.ext import Updater, MessageHandler, Filters
 import yt_dlp
 import os
-import imghdr
+from PIL import Image
 
 TOKEN = "7953602481:AAH2Bj97OEJfGWAmgWDRBhAvcbNV0ATT6IY"
 
@@ -28,6 +28,12 @@ def handle_message(update, context):
             update.message.reply_text(f"Error: {e}")
     else:
         update.message.reply_text("Send me a YouTube link 🎥")
+def get_image_type(file_path):
+    try:
+        with Image.open(file_path) as img:
+            return img.format.lower()
+    except:
+        return None
 
 def main():
     updater = Updater(TOKEN, use_context=True)
@@ -38,4 +44,5 @@ def main():
 
 if __name__ == "__main__":
     main()
+
 
